@@ -1,0 +1,7 @@
+.git/
+.idea/
+build/
+data/
+node_modules/
+
+.gitignore

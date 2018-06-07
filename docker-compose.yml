@@ -1,0 +1,24 @@
+version: '3.4'
+
+services:
+  botyo:
+    image: botyo-example:2
+    build: .
+    depends_on:
+      - mongo
+    volumes:
+      - botyo-data:/data/app
+      - ./config.yaml:/app/config.yaml:ro
+    restart: on-failure:3
+
+  mongo:
+    image: mongo:3.4
+    expose:
+      - "27017"
+    volumes:
+      - mongo-data:/data/db
+    restart: on-failure:3
+
+volumes:
+  botyo-data:
+  mongo-data:

@@ -1,0 +1,92 @@
+facebook:
+  email: YOUR_FACEBOOK_EMAIL
+  password: YOUR_FACEBOOK_PASSWORD
+  approvalTimeout: 60       # seconds; how long to wait for the account holder to approve the login before trying again
+  cookiesFile: cookies.json # where to store session cookies
+#  cookiesFile: /data/app/cookies.json              # Use this if running inside Docker
+
+
+instagram:
+  username: YOUR_INSTAGRAM_USERNAME
+  password: YOUR_INSTAGRAM_PASSWORD
+  cookiesFile: instagram_cookies.json
+#  cookiesFile: /data/app/instagram_cookies.json    # Use this if running inside Docker
+
+
+mongo.url: mongodb://localhost:27017/botyo
+#mongo.url: mongodb://mongo:27017/botyo             # Use this if running inside Docker
+
+
+modules:
+  InstagramSneakPeekFilter:
+    maxPhotos: 3  # how many photos of the user to post
+
+  QuoteCommand:
+    enable: true
+    markov:
+      vom: true         # whether to build a variable-order Markov model
+      order: 2          # order of the Markov model
+      maxWordCount: 20  # limit for the generated sentence's word count
+    censorship:
+      enable: false     # whether to censor (i.e. not send) sentences matching the following regex, and generate new ones instead
+      regex: "/badword|worseword/gi"   # JavaScript regex
+      maxRetries: 20    # how many times to retry generating new sentences until finding one that doesn't get censored
+
+  ReverseImageSearchCommand:
+    recentMessagesCount: 20          # how many recent messages to search for photos (default: 20)
+    shortenUrls: false               # should it shorten result URLs (default: false)
+    googlApiKey: YOUR_GOOGL_API_KEY  # goo.gl API key (optional if shortenUrls is false, otherwise required)
+
+  ShowMeCommand:
+    defaultImageCount: 1   # how many images to return if not specified
+    maxImageCount: 9       # max number of images to return
+    cseId: YOUR_CSE_ID
+    cseApiKey: YOUR_CSE_API_KEY
+
+  SpotifyCommand:
+    market: US   # An ISO 3166-1 alpha-2 country code. Only tracks playable in that market will be returned.
+    clientId: YOUR_CLIENT_ID
+    clientSecret: YOUR_CLIENT_SECRET
+
+  YouTubeCommand:
+    apiKey: YOUR_YOUTUBE_API_KEY # https://developers.google.com/youtube/v3/docs/#calling-the-api
+    regionCode: US               # Return search results for the specified country. (ISO 3166-1 alpha-2 country code)
+    order: relevance             # Method to use to order videos: date/rating/relevance/title/viewCount
+    safeSearch: moderate         # Indicates whether the search results should include restricted content as well as standard content; moderate/none/strict
+
+  ChatThreadHistoryDownloaderScheduledTask: # internal modules are configurable too
+    enable: false
+    executeOnStart: false
+    schedule: 21600000 # 6 hours
+
+  ChatThreadParticipantsUpdaterScheduledTask:
+    enable: true
+    executeOnStart: true
+    schedule: 3600000 # 1 hour
+
+
+chat-threads:
+  192123512310277:                             # thread id
+    participants:
+      zuck:                                    # Facebook username of participant
+        aliases: [zuck, mark, zuckerberg]
+        admin: true                            # custom properties are allowed
+      5:                                       # Facebook id of participant
+        aliases:
+          - chris
+          - hughes
+        overrides:                             # per-participant overrides of module configuration properties
+          modules.SpotifyCommand.enable: false # disables this command for this participant in this chat
+
+    overrides:                                 # per-chat-thread overrides of module configuration properties
+      modules.YouTubeCommand.enable: false     # disables this command in this chat
+      modules.QuoteCommand:                    # overrides the properties set above
+        markov:
+          vom: false
+          order: 1
+          maxWordCount: 10
+        censorship:
+          enable: true
+          regex: "/privacy|GDPR/gi"
+
+  162123511236172:  # a chat thread with no config, only to listen to (note the colon)

@@ -1,0 +1,45 @@
+{
+  "private": true,
+  "name": "botyo-example",
+  "version": "1.0.0-alpha",
+  "description": "",
+  "main": "build/index.js",
+  "scripts": {
+    "prebuild": "rimraf build/",
+    "build": "tsc -p .",
+    "start": "node build/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ivkos/botyo-example.git"
+  },
+  "author": {
+    "name": "Ivaylo Stoyanov",
+    "email": "me@ivkos.com",
+    "url": "https://github.com/ivkos"
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/ivkos/botyo-example/issues"
+  },
+  "homepage": "https://github.com/ivkos/botyo-example#readme",
+  "dependencies": {
+    "botyo": "^2.0.0-alpha.55",
+    "botyo-api": "^2.0.0-alpha.39",
+    "botyo-bundle-instagram": "^2.0.0-alpha.3",
+    "botyo-bundle-persistence": "^2.0.0-alpha.3",
+    "botyo-command-ping": "^2.0.0-alpha.3",
+    "botyo-command-quote": "^2.0.0-alpha.4",
+    "botyo-command-reverse-image-search": "^2.0.0-alpha.2",
+    "botyo-command-showme": "^2.0.0-alpha.4",
+    "botyo-command-spotify": "^2.0.0-alpha.3",
+    "botyo-command-youtube": "^2.0.0-alpha.1"
+  },
+  "devDependencies": {
+    "rimraf": "^2.6.2",
+    "typescript": "^2.6.2"
+  },
+  "engines": {
+    "node": ">=8.3.0"
+  }
+}
