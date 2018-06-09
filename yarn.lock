@@ -202,14 +202,14 @@ botyo-api@^2.0.1:
     "@types/mongodb" "^2.2.20"
     "@types/winston" "^2.3.9"
 
-botyo-bundle-instagram@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/botyo-bundle-instagram/-/botyo-bundle-instagram-2.0.0.tgz#87b3b9c945eaa33d24ad0d069a7d8d73aea552f9"
+botyo-bundle-instagram@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/botyo-bundle-instagram/-/botyo-bundle-instagram-2.0.2.tgz#dbe03c03a3d30bfe43504575c7b4b4043b880496"
   dependencies:
     bluebird "^3.5.1"
     botyo-api "^2.0.1"
     find-hashtags "^1.0.1"
-    instagram-private-api "^0.6.7"
+    instagram-private-api "^0.6.8"
     request "^2.87.0"
 
 botyo-bundle-persistence@^2.0.0:
@@ -939,7 +939,7 @@ inherits@2, inherits@^2.0.1, inherits@~2.0.1, inherits@~2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.3.tgz#633c2c83e3da42a502f52466022480f4208261de"
 
-instagram-private-api@^0.6.7:
+instagram-private-api@^0.6.8:
   version "0.6.8"
   resolved "https://registry.yarnpkg.com/instagram-private-api/-/instagram-private-api-0.6.8.tgz#2a47d4497cada1782dff1205525fbd981dd157c4"
   dependencies:
