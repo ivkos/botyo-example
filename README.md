@@ -1,7 +1,7 @@
 # Botyo Example Project
 ![npm](https://img.shields.io/npm/l/botyo.svg)
 
-This is an example project for [Botyo](https://github.com/ivkos/botyo/tree/v2.0.0-alpha) demonstrating how to configure and run a 
+This is an example project for [Botyo](https://github.com/ivkos/botyo) demonstrating how to configure and run a 
 Facebook group chat bot.
 
 The project has the following Botyo modules installed:
